@@ -19,18 +19,18 @@ This repo only tests tokenizers aimed at text, not code-specific tokenizers like
 
 ## Benchmark
 
-| Task Name      | Average Time (ms) | bar                                                 | Variance (ms) |
-| -------------- | ----------------- | --------------------------------------------------- | ------------- |
-| gpt3-tokenizer | 509               | ███████████████████████████████████████████████████ | 20428         |
-| gpt-3-encoder  | 272               | ███████████████████████████                         | 64022         |
-| js-tiktoken    | 35                | ███                                                 | 8971          |
-| gpt-tokenizer  | 26                | ███                                                 | 3028          |
-| tiktoken       | 13                | █                                                   | 347           |
-| tiktoken-node  | 11                | █                                                   | 133           |
+| Task Name      | Average Time (ms) | bar                                                | Variance (ms) |
+| -------------- | ----------------- | -------------------------------------------------- | ------------- |
+| gpt3-tokenizer | 502               | ██████████████████████████████████████████████████ | 212728        |
+| gpt-3-encoder  | 298               | ██████████████████████████████                     | 982726        |
+| js-tiktoken    | 41                | ████                                               | 4755          |
+| tiktoken       | 16                | ██                                                 | 66            |
+| tiktoken-node  | 13                | █                                                  | 60            |
+| gpt-tokenizer  | 13                | █                                                  | 307           |
 
 _(lower times are better)_
 
-`@dqbd/tiktoken` which is a wasm port of the official Rust `tiktoken` is **~3-6x faster than the JS variants** with significantly less memory overhead and variance. 🔥
+If you're looking for an extremely fast, pure JavaScript option with a low memory footprint, the fastest tokenizer availableb is `gpt-tokenizer`. The other two fastest options are `tiktoken-node` (node only) and `@dqbd/tiktoken` (WASM Rust port).
 
 To reproduce:
 

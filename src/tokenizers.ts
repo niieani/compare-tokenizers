@@ -40,12 +40,6 @@ export const tokenizers: Tokenizer[] = [
     decode: (i: number[]) => jsTiktokenTokenizer.decode(i)
   },
   {
-    label: 'gpt-tokenizer',
-    encode: (i: string) => gptTokenizer.encode(i),
-    decode: (i: number[]) => gptTokenizer.decode(i)
-  },
-
-  {
     label: 'tiktoken',
     encode: (i: string) => tiktokenWasm.encode(i),
     decode: (i: Uint32Array) => new TextDecoder().decode(tiktokenWasm.decode(i))
@@ -54,5 +48,10 @@ export const tokenizers: Tokenizer[] = [
     label: 'tiktoken-node',
     encode: (i: string) => tiktokenNode.encode(i),
     decode: (i: number[]) => tiktokenNode.decode(i)
+  },
+  {
+    label: 'gpt-tokenizer',
+    encode: (i: string) => gptTokenizer.encode(i),
+    decode: (i: number[]) => gptTokenizer.decode(i)
   }
 ]
